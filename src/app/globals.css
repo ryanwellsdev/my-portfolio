@@ -2,32 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Hover effect */
+.hover-effect {
+  transition: transform 0.2s ease-in-out;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.hover-effect:hover {
+  transform: translateX(10px);
+}
+
+/* Remove the lighting effect */
+body::before {
+  content: ''; /* This line and below can be removed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--light-x) var(--light-y),
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  mix-blend-mode: screen;
+  z-index: 1;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  position: relative; /* Ensure to keep this if necessary */
+  z-index: 0;
 }
