@@ -5,7 +5,15 @@ import ProjectOne from "./ProjectOne";
 import ProjectTwo from "./ProjectTwo";
 import ProjectThree from "./ProjectThree";
 
-const ProjectsSection: React.FC = () => {
+interface ProjectsSectionProps {
+  isOpen: boolean;
+  onClick: () => void;
+}
+
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({
+  isOpen,
+  onClick,
+}) => {
   const [openProject, setOpenProject] = useState<string | null>(null);
 
   const handleToggle = (projectId: string) => {
