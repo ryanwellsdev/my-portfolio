@@ -31,12 +31,12 @@ const ProjectTwo: React.FC<ProjectProps> = ({
 
   return (
     <div
-      className="relative h-full flex items-center"
+      className="relative h-full flex items-center project-container" // Ensure this class is present for hover effects
       style={{ marginLeft: isOpen ? "0" : "-2px" }} // Adjust margin to slide under
     >
       {/* Toggle Button */}
       <div
-        className={`h-full flex items-center justify-center transition-transform duration-500 bg-gray-200 z-30 cursor-pointer border-r-2 border-black ${
+        className={`h-full flex items-center justify-center transition-transform duration-500 bg-[#f8f8f8] z-30 cursor-pointer border-r-2 py-8 border-black ${
           isOpen ? "border-l-0" : "border-l-2"
         }`}
         style={{
@@ -51,12 +51,19 @@ const ProjectTwo: React.FC<ProjectProps> = ({
           }
         }}
       >
-        <span className="text-black rotate-90">{title}</span>
+        <div className="relative overflow-hidden w-full h-full flex items-center gradient-overlay justify-center">
+          <span
+            className="text-black text-base animate-vertical-marquee" // Ensure the animation class is here
+            style={{ whiteSpace: "nowrap" }}
+          >
+            {title}
+          </span>
+        </div>
       </div>
 
       {/* Project Content Container */}
       <div
-        className={`h-full bg-white z-20 transition-all duration-500 ease-in-out ${
+        className={`h-full bg-[#f8f8f8] z-20 transition-all duration-500 ease-in-out ${
           isOpen ? "w-[calc(50vw-6rem)] border-black" : "w-0"
         }`}
         style={{

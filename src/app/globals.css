@@ -1,5 +1,3 @@
-/* styles/globals.css */
-
 /* Define the custom font */
 @font-face {
   font-family: 'TexGyreHeros';
@@ -26,4 +24,72 @@ body {
   position: relative; /* Ensure to keep this if necessary */
   z-index: 0;
   font-family: 'TexGyreHeros'
+}
+
+/* Keyframes for vertical marquee animation */
+@keyframes vertical-marquee {
+  0% {
+    transform: translateY(1000%) rotate(90deg);
+  }
+  4% {
+    transform: translateY(1000%) rotate(90deg); /* Short pause at the start */
+  }
+  48% {
+    transform: translateY(-1000%) rotate(90deg); /* Move to the other end */
+  }
+  52% {
+    transform: translateY(-1000%) rotate(90deg); /* Short pause at the end */
+  }
+  96% {
+    transform: translateY(1000%) rotate(90deg); /* Return to start */
+  }
+  100% {
+    transform: translateY(1000%) rotate(90deg); /* Ensure it stays at start */
+  }
+}
+
+/* Default state: no animation */
+.animate-vertical-marquee {
+  display: inline-block;
+  transform: translateY(1000%) rotate(90deg); /* Start position */
+  transition: transform 0s linear; /* No transition by default */
+}
+
+/* Apply animation on hover */
+.project-container:hover .animate-vertical-marquee {
+  animation: vertical-marquee 8s linear infinite;
+}
+
+
+/* Gradient overlay setup */
+.gradient-overlay {
+  position: relative;
+}
+
+.gradient-overlay::before,
+.gradient-overlay::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10%; /* Adjust the height to control the fade */
+  z-index: 10;
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.3s ease-in-out; /* Smooth fade-in */
+}
+
+.gradient-overlay::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(248, 248, 248, 1), rgba(248, 248, 248, 0));
+}
+
+.gradient-overlay::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(248, 248, 248, 1), rgba(248, 248, 248, 0));
+}
+
+/* Show gradient overlays on hover */
+.project-container:hover .gradient-overlay::before,
+.project-container:hover .gradient-overlay::after {
+  opacity: 1;
 }
