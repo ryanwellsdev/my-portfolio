@@ -22,7 +22,6 @@ const ProjectOne: React.FC<ProjectProps> = ({
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
     if (isOpen) {
-      // Delay content appearance until after expansion animation is complete
       timeoutId = setTimeout(() => setContentVisible(true), 500);
     } else {
       setContentVisible(false);
@@ -33,15 +32,19 @@ const ProjectOne: React.FC<ProjectProps> = ({
   return (
     <div
       className="relative h-full flex items-center project-container"
-      style={{ marginLeft: isOpen ? "0" : "-2px" }} // Adjust margin to slide under
+      style={{ marginLeft: isOpen ? "0" : "-2px" }}
     >
       {/* Toggle Button */}
       <div
-        className={`h-full flex items-center justify-center transition-transform duration-500 bg-[#f8f8f8] z-30 cursor-pointer border-r-2 py-8 border-black ${
+        className={`flex items-center justify-center transition-transform duration-500 bg-[#f8f8f8] z-30 cursor-pointer border-r-2 border-black ${
           isOpen ? "border-l-0" : "border-l-2"
         }`}
         style={{
           width: isOpen ? "6rem" : "calc(6rem - 2px)",
+          height: "100%",
+          paddingTop: "8rem", // Add padding at the top
+          paddingBottom: "8rem", // Add padding at the bottom
+          boxSizing: "border-box", // Ensure padding does not affect size
         }}
         onClick={onClick}
         role="button"
@@ -68,32 +71,55 @@ const ProjectOne: React.FC<ProjectProps> = ({
           isOpen ? "w-[calc(50vw-6rem)] border-black" : "w-0"
         }`}
         style={{
-          overflow: isOpen ? "auto" : "hidden", // Allow scrolling when open
-          boxSizing: "border-box", // Include padding and border in width calculations
-          whiteSpace: isOpen ? "normal" : "nowrap", // Prevent text wrap when collapsed
+          overflow: "hidden",
+          boxSizing: "border-box",
+          whiteSpace: isOpen ? "normal" : "nowrap",
         }}
       >
-        {/* Content Div */}
-        <div
-          className={`flex flex-col justify-center p-12 transition-opacity duration-500 ease-in-out ${
-            contentVisible ? "opacity-100" : "opacity-0"
-          } box-border`} // Added box-border to ensure padding and border are included in width calculation
-          style={{
-            display: contentVisible ? "block" : "none",
-          }}
-        >
-          <div className="mt-4 overflow-hidden">
-            <Image
-              src="/photos/ryanwellswebsite.png"
-              alt={title}
-              width={700}
-              height={300}
-              objectFit="cover"
-              className="rounded-md transform transition-transform duration-500 ease-in-out hover:scale-105 overflow-hidden"
-            />
+        {/* Inner Container with Increased Padding */}
+        <div className="h-full flex flex-col justify-center py-24">
+          {/* Scrollable Content Container */}
+          <div
+            className={`h-full w-full overflow-y-auto transition-opacity duration-500 ease-in-out ${
+              contentVisible ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <div className="flex flex-col py-8 items-center">
+              {/* Image Container with Zoom Effect */}
+              <div
+                className="relative overflow-hidden mb-5"
+                style={{ width: "700px", height: "350px" }}
+              >
+                <div className="absolute inset-0">
+                  <Image
+                    src="/photos/ryanwellswebsite.png"
+                    alt={title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
+                  />
+                </div>
+              </div>
+              <div
+                className="relative overflow-hidden"
+                style={{ width: "700px", height: "350px" }}
+              >
+                <div className="absolute inset-0">
+                  <Image
+                    src="/photos/ryanwellswebsite2.png"
+                    alt={title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-between items-center px-8 w-full">
+                <h2 className="text-sm text-black font-bold">{title}</h2>
+                <p className="text-xs">{details}</p>
+              </div>
+            </div>
           </div>
-          <h2 className="text-sm text-black font-bold">{title}</h2>
-          <p className="text-xs">{details}</p>
         </div>
       </div>
     </div>

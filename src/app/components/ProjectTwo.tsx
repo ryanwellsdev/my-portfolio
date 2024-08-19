@@ -31,16 +31,20 @@ const ProjectTwo: React.FC<ProjectProps> = ({
 
   return (
     <div
-      className="relative h-full flex items-center project-container" // Ensure this class is present for hover effects
-      style={{ marginLeft: isOpen ? "0" : "-2px" }} // Adjust margin to slide under
+      className="relative h-full flex items-center project-container"
+      style={{ marginLeft: isOpen ? "0" : "-2px" }}
     >
       {/* Toggle Button */}
       <div
-        className={`h-full flex items-center justify-center transition-transform duration-500 bg-[#f8f8f8] z-30 cursor-pointer border-r-2 py-8 border-black ${
+        className={`flex items-center justify-center transition-transform duration-500 bg-[#f8f8f8] z-30 cursor-pointer border-r-2 border-black ${
           isOpen ? "border-l-0" : "border-l-2"
         }`}
         style={{
           width: isOpen ? "6rem" : "calc(6rem - 2px)",
+          height: "100%",
+          paddingTop: "8rem", // Added padding at the top
+          paddingBottom: "8rem", // Added padding at the bottom
+          boxSizing: "border-box", // Ensure padding does not affect size
         }}
         onClick={onClick}
         role="button"
@@ -53,7 +57,7 @@ const ProjectTwo: React.FC<ProjectProps> = ({
       >
         <div className="relative overflow-hidden w-full h-full flex items-center gradient-overlay justify-center">
           <span
-            className="text-black text-base animate-vertical-marquee" // Ensure the animation class is here
+            className="text-black text-base animate-vertical-marquee"
             style={{ whiteSpace: "nowrap" }}
           >
             {title}
@@ -67,22 +71,49 @@ const ProjectTwo: React.FC<ProjectProps> = ({
           isOpen ? "w-[calc(50vw-6rem)] border-black" : "w-0"
         }`}
         style={{
-          overflow: isOpen ? "auto" : "hidden", // Allow scrolling when open
-          boxSizing: "border-box", // Include padding and border in width calculations
-          whiteSpace: isOpen ? "normal" : "nowrap", // Prevent text wrap when collapsed
+          overflow: "hidden",
+          boxSizing: "border-box",
+          whiteSpace: isOpen ? "normal" : "nowrap",
         }}
       >
-        {/* Content Div */}
-        <div
-          className={`flex flex-col justify-center p-12 transition-opacity duration-500 ease-in-out ${
-            contentVisible ? "opacity-100" : "opacity-0"
-          } box-border`} // Added box-border to ensure padding and border are included in width calculation
-          style={{
-            display: contentVisible ? "block" : "none",
-          }}
-        >
-          <h2 className="text-xl text-black font-bold">{title}</h2>
-          <p>{details}</p>
+        {/* Inner Container with Increased Padding */}
+        <div className="h-full flex flex-col justify-center py-24">
+          {/* Scrollable Content Container */}
+          <div
+            className={`h-full w-full overflow-y-auto transition-opacity duration-500 ease-in-out ${
+              contentVisible ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <div className="flex flex-col items-start p-6">
+              <h2 className="text-lg text-black font-bold mb-4">{title}</h2>
+              <p className="text-xs mb-4">
+                {details} This project showcases advanced skills in full-stack
+                development, integrating modern technologies to create
+                efficient, user-friendly applications. The focus is on
+                responsive design, optimized performance, and seamless user
+                experience.
+              </p>
+              <p className="text-xs mb-4">
+                The development process included extensive planning, iterative
+                testing, and user feedback loops to ensure that the final
+                product meets the needs of its intended audience. Emphasis was
+                placed on clean, maintainable code, and scalable architecture.
+              </p>
+              <p className="text-xs mb-4">
+                Throughout the project, key technologies were employed, such as
+                React for the frontend, Node.js for the backend, and MongoDB for
+                the database. The project also leveraged Next.js for server-side
+                rendering and enhanced performance.
+              </p>
+              <p className="text-xs">
+                The outcome is a highly functional application that demonstrates
+                proficiency in software development, project management, and
+                user-centered design. This project is a testament to the
+                dedication to quality and the continuous pursuit of excellence
+                in the field of software engineering.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
