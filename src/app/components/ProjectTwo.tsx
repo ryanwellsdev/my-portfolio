@@ -36,7 +36,7 @@ const ProjectTwo: React.FC<ProjectProps> = ({
     >
       {/* Toggle Button */}
       <div
-        className={`flex items-center justify-center transition-transform duration-500 bg-[#f8f8f8] z-30 cursor-pointer border-r-2 border-black ${
+        className={`flex items-center justify-center transition-transform duration-500 bg-[#f8f8f8] z-30 cursor-pointer border-r-2 border-black hover:bg-[#ADFF2F] ${
           isOpen ? "border-l-0" : "border-l-2"
         }`}
         style={{
@@ -55,13 +55,21 @@ const ProjectTwo: React.FC<ProjectProps> = ({
           }
         }}
       >
-        <div className="relative overflow-hidden w-full h-full flex items-center gradient-overlay justify-center">
+        <div className="relative overflow-hidden w-full h-full flex items-center justify-center">
           <span
-            className="text-black text-base animate-vertical-marquee"
+            className="text-black text-base relative z-10 animate-vertical-marquee whitespace-nowrap"
             style={{ whiteSpace: "nowrap" }}
           >
             {title}
           </span>
+          {/* Gradient Overlay */}
+          <div
+            className="absolute inset-0 z-0 transition-all duration-500 gradient-overlay"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
+            }}
+          />
         </div>
       </div>
 

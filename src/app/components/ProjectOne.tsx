@@ -36,7 +36,7 @@ const ProjectOne: React.FC<ProjectProps> = ({
     >
       {/* Toggle Button */}
       <div
-        className={`flex items-center justify-center transition-transform duration-500 bg-[#f8f8f8] z-30 cursor-pointer border-r-2 border-black ${
+        className={`flex items-center justify-center transition-transform duration-500 bg-[#f8f8f8] z-30 cursor-pointer border-r-2 border-black hover:bg-[#ADFF2F] ${
           isOpen ? "border-l-0" : "border-l-2"
         }`}
         style={{
@@ -55,13 +55,21 @@ const ProjectOne: React.FC<ProjectProps> = ({
           }
         }}
       >
-        <div className="relative overflow-hidden w-full h-full flex items-center gradient-overlay justify-center">
+        <div className="relative overflow-hidden w-full h-full flex items-center justify-center">
           <span
-            className="text-black text-base animate-vertical-marquee"
+            className="text-black text-base relative z-10 animate-vertical-marquee whitespace-nowrap"
             style={{ whiteSpace: "nowrap" }}
           >
             {title}
           </span>
+          {/* Gradient Overlay */}
+          <div
+            className="absolute inset-0 z-0 transition-all duration-500 gradient-overlay"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
+            }}
+          />
         </div>
       </div>
 
@@ -90,13 +98,13 @@ const ProjectOne: React.FC<ProjectProps> = ({
                 className="relative overflow-hidden mb-5"
                 style={{ width: "700px", height: "350px" }}
               >
-                <div className="absolute inset-0">
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
                   <Image
                     src="/photos/ryanwellswebsite.png"
                     alt={title}
                     layout="fill"
                     objectFit="cover"
-                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
                   />
                 </div>
               </div>
@@ -104,13 +112,13 @@ const ProjectOne: React.FC<ProjectProps> = ({
                 className="relative overflow-hidden"
                 style={{ width: "700px", height: "350px" }}
               >
-                <div className="absolute inset-0">
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
                   <Image
                     src="/photos/ryanwellswebsite2.png"
                     alt={title}
                     layout="fill"
                     objectFit="cover"
-                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
                   />
                 </div>
               </div>
