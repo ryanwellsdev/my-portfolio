@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import AnimatedName from "./components/AnimatedName";
 import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
@@ -8,22 +8,63 @@ import ProjectsSection from "./components/ProjectsSection";
 export default function HomePage() {
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [openProject, setOpenProject] = useState<string | null>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  const aboutRef = useRef<HTMLDivElement | null>(null);
+  const projectsRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    // Check if the device is touch-based
+    setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
+  }, []);
 
   const handleSectionToggle = (section: string) => {
     if (section === "about") {
-      // If "About" is clicked, close any open projects and open About
-      setOpenProject(null); // Close all projects
+      setOpenProject(null);
       setOpenSection(openSection === "about" ? null : "about");
     } else if (section === "projects") {
-      // If a project is clicked, close About and open Projects
       setOpenSection("projects");
     }
   };
 
   const handleProjectClick = (projectId: string) => {
-    // Ensure the About section is closed when any project is opened
     setOpenSection("projects");
     setOpenProject(openProject === projectId ? null : projectId);
+  };
+
+  const handleMouseLeave = (
+    section: string,
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
+    if (!isTouchDevice) {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      let rect;
+
+      if (section === "about") {
+        rect = aboutRef.current?.getBoundingClientRect();
+      } else if (section === "projects") {
+        rect = projectsRef.current?.getBoundingClientRect();
+      }
+
+      if (rect) {
+        const buffer = 20; // Add a 20px buffer around the section
+        const isOutside =
+          mouseX > rect.right + buffer ||
+          mouseX < rect.left - buffer ||
+          mouseY > rect.bottom + buffer ||
+          mouseY < rect.top - buffer;
+
+        if (isOutside) {
+          if (section === "about" && openSection === "about") {
+            setOpenSection(null);
+          } else if (section === "projects" && openSection === "projects") {
+            setOpenSection(null);
+            setOpenProject(null);
+          }
+        }
+      }
+    }
   };
 
   return (
@@ -34,16 +75,27 @@ export default function HomePage() {
       {/* Horizontal Bottom Border */}
       <div className="absolute bottom-24 left-0 right-0 h-[2px] bg-black z-50" />
 
-      {/* Sections */}
-      <AboutSection
-        isOpen={openSection === "about"}
-        onClick={() => handleSectionToggle("about")}
-      />
+      {/* About Section */}
+      <div ref={aboutRef} onMouseLeave={(e) => handleMouseLeave("about", e)}>
+        <AboutSection
+          isOpen={openSection === "about"}
+          onClick={() => handleSectionToggle("about")}
+        />
+      </div>
+
       <AnimatedName />
-      <ProjectsSection
-        onProjectClick={handleProjectClick}
-        openProject={openProject} // Control which project is open
-      />
+
+      {/* Projects Section */}
+      <div
+        ref={projectsRef}
+        onMouseEnter={() => !isTouchDevice && setOpenSection("projects")}
+        onMouseLeave={(e) => handleMouseLeave("projects", e)}
+      >
+        <ProjectsSection
+          onProjectClick={handleProjectClick}
+          openProject={openProject}
+        />
+      </div>
     </div>
   );
 }

@@ -95,7 +95,7 @@ const ProjectOne: React.FC<ProjectProps> = ({
             <div className="flex flex-col py-8 items-center">
               {/* Image Container with Zoom Effect */}
               <div
-                className="relative overflow-hidden mb-5"
+                className="relative overflow-hidden mb-2"
                 style={{ width: "700px", height: "350px" }}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
@@ -112,9 +112,23 @@ const ProjectOne: React.FC<ProjectProps> = ({
                 className="relative overflow-hidden"
                 style={{ width: "700px", height: "350px" }}
               >
-                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                <div className="absolute inset-0 rounded-lg overflow-hidden mb-2">
                   <Image
                     src="/photos/ryanwellswebsite2.png"
+                    alt={title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                  />
+                </div>
+              </div>
+              <div
+                className="relative overflow-hidden"
+                style={{ width: "700px", height: "350px" }}
+              >
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <Image
+                    src="/photos/ryanwellswebsite3.png"
                     alt={title}
                     layout="fill"
                     objectFit="cover"
