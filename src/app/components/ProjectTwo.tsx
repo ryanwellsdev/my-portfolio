@@ -36,7 +36,7 @@ const ProjectTwo: React.FC<ProjectProps> = ({
     >
       {/* Toggle Button */}
       <div
-        className={`flex items-center justify-center transition-transform duration-500 toggle-button-hover z-30 cursor-pointer border-r-2 border-black ${
+        className={`flex items-center justify-center transition-transform duration-500 toggle-button-hover z-30 cursor-pointer border-r-2 bg-white border-black ${
           isOpen ? "border-l-0" : "border-l-2"
         }`}
         style={{
@@ -75,7 +75,7 @@ const ProjectTwo: React.FC<ProjectProps> = ({
 
       {/* Project Content Container */}
       <div
-        className={`h-full bg-[#f8f8f8] z-20 transition-all duration-500 ease-in-out about-content-hover ${
+        className={`h-full bg-white z-20 transition-all duration-500 ease-in-out about-content-hover ${
           isOpen ? "w-[calc(50vw-6rem)] border-black" : "w-0"
         }`}
         style={{

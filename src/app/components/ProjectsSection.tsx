@@ -17,7 +17,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
     <div className="absolute right-0 top-0 h-full flex flex-row-reverse">
       <ProjectOne
         id="project1"
-        title="www.ryanwellsmusic.com - a website for all things music"
+        title="www.ryanwellsmusic.com - a website for my music"
         details="HTML CSS JAVASCRIPT"
         isOpen={openProject === "project1"}
         onClick={() => onProjectClick("project1")}

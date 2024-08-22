@@ -98,12 +98,11 @@ body {
 
 /* For the toggle button */
 .toggle-button-hover {
-  background-color: #f8f8f8; /* Default background color */
-  transition: background-color 0.3s ease, opacity 0.3s ease; /* Smooth background transition */
+  @apply bg-white transition-colors duration-300 ease-in-out; /* Apply Tailwind utilities */
 }
 
 .toggle-button-hover:hover {
-  background-color: #ADFF2F; /* Green background on hover */
+  @apply bg-accent3;
 }
 
 .toggle-button-hover::before,

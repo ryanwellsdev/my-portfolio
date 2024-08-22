@@ -21,15 +21,15 @@ const AnimatedName: React.FC = () => {
   const work = "WORK".split(""); // Separate WORK to apply different style
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <h1 className="bg-black px-6 py-4">
+    <div className="flex items-center justify-center h-screen z-0">
+      <h1 className="bg-accent3 px-6 py-4">
         {name.map((letter, index) => (
           <span
             key={index}
-            className="inline-block text-white text-8xl transition-transform duration-500 ease-in-out"
+            className="inline-block text-[#FFFFFF] text-8xl transition-transform duration-500 ease-in-out"
             style={{
               transition: "transform 0.5s ease-in-out",
-              WebkitTextStroke: "0.5px black", // Apply thinner black outline
+              WebkitTextStroke: "0.5px #1e2930", // Update with accent1 color
             }}
             onMouseEnter={(e) => {
               const element = e.currentTarget;
@@ -48,10 +48,10 @@ const AnimatedName: React.FC = () => {
         {work.map((letter, index) => (
           <span
             key={index}
-            className="inline-block text-[#ADFF2F] text-8xl transition-transform duration-500 ease-in-out"
+            className="inline-block text-accent2 text-8xl transition-transform duration-500 ease-in-out"
             style={{
               transition: "transform 0.5s ease-in-out",
-              WebkitTextStroke: "0.5px black", // Apply thinner black outline
+              WebkitTextStroke: "0.5px #1e2930", // Update with accent2 color
             }}
             onMouseEnter={(e) => {
               const element = e.currentTarget;

@@ -24,7 +24,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isOpen, onClick }) => {
     <div className="absolute left-0 top-0 h-full flex items-center">
       {/* About Content */}
       <div
-        className={`h-full bg-[#f8f8f8] z-20 transition-[width] duration-500 ease-in-out ${
+        className={`h-full bg-white z-20 transition-[width] duration-500 ease-in-out ${
           isOpen ? "w-[calc(40vw-3rem)]" : "w-0"
         } overflow-hidden`}
       >
@@ -110,7 +110,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isOpen, onClick }) => {
 
       {/* Toggle Button */}
       <div
-        className="relative toggle-button-hover h-full w-[6rem] py-32 text-nowrap text-sm flex flex-col justify-between items-center border-l-2 border-r-2 bg-[#f8f8f8] border-black z-10 hover:bg-[#ADFF2F] transition-colors duration-250"
+        className="relative toggle-button-hover h-full w-[6rem] py-32 bg-white text-nowrap text-sm flex flex-col justify-between items-center border-l-2 border-r-2 border-black z-10 hover:bg-accent3 transition-colors duration-250"
         onClick={onClick}
         role="button"
         tabIndex={0}
