@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 interface ProjectProps {
@@ -93,6 +94,48 @@ const ProjectTwo: React.FC<ProjectProps> = ({
             }`}
           >
             <div className="flex flex-col items-start p-6">
+              <div
+                className="relative overflow-hidden mb-2"
+                style={{ width: "700px", height: "350px" }}
+              >
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <Image
+                    src="/photos/QuickQuestion1.png"
+                    alt={title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                  />
+                </div>
+              </div>
+              <div
+                className="relative overflow-hidden mb-2"
+                style={{ width: "700px", height: "350px" }}
+              >
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <Image
+                    src="/photos/QuickQuestion2.png"
+                    alt={title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                  />
+                </div>
+              </div>
+              <div
+                className="relative overflow-hidden mb-2"
+                style={{ width: "700px", height: "350px" }}
+              >
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <Image
+                    src="/photos/QuickQuestion3.png"
+                    alt={title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                  />
+                </div>
+              </div>
               <h2 className="text-lg text-black font-bold mb-4">{title}</h2>
               <p className="text-xs mb-4">
                 {details} This project showcases advanced skills in full-stack

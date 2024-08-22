@@ -136,7 +136,7 @@ const ProjectOne: React.FC<ProjectProps> = ({
                   />
                 </div>
               </div>
-              <div className="flex justify-between items-center px-8 w-full">
+              <div className="flex justify-between items-center px-10 mt-1 w-full">
                 <h2 className="text-sm text-black font-bold">{title}</h2>
                 <p className="text-xs">{details}</p>
               </div>
