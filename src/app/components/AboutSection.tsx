@@ -31,7 +31,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isOpen, onClick }) => {
         <div
           className={`h-full flex flex-col p-6 py-32 transition-opacity duration-500 ease-in-out ${
             contentVisible ? "opacity-100" : "opacity-0"
-          }`}
+          } about-content-hover relative`}
           style={{
             display: contentVisible ? "block" : "none",
             width: "calc(40vw - 3rem)",
@@ -40,6 +40,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isOpen, onClick }) => {
           }}
         >
           <h2 className="text-lg text-black font-bold">About Section</h2>
+          {/* About Section Content */}
           <p className="text-xs mb-4">
             Ryan Wells is a dynamic professional whose career seamlessly bridges
             the worlds of software development, film production, and electronic
@@ -103,13 +104,13 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isOpen, onClick }) => {
             a versatile innovator, continually pushing the boundaries of what’s
             possible in technology, film, and music.
           </p>
-          {/* Additional content here */}
+          {/* Additional content */}
         </div>
       </div>
 
       {/* Toggle Button */}
       <div
-        className="h-full w-[6rem] py-32 text-nowrap text-sm flex flex-col justify-between items-center border-l-2 border-r-2 bg-[#f8f8f8] border-black z-10 hover:bg-[#ADFF2F]"
+        className="relative toggle-button-hover h-full w-[6rem] py-32 text-nowrap text-sm flex flex-col justify-between items-center border-l-2 border-r-2 bg-[#f8f8f8] border-black z-10 hover:bg-[#ADFF2F] transition-colors duration-250"
         onClick={onClick}
         role="button"
         tabIndex={0}

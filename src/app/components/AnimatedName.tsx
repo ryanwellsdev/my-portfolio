@@ -17,7 +17,8 @@ const getRandomTransformation = () => {
 };
 
 const AnimatedName: React.FC = () => {
-  const name = "RYANWELLS.WORK".split("");
+  const name = "RYANWELLS.".split(""); // Separate the name and period
+  const work = "WORK".split(""); // Separate WORK to apply different style
 
   return (
     <div className="flex items-center justify-center h-screen">
@@ -33,13 +34,33 @@ const AnimatedName: React.FC = () => {
             onMouseEnter={(e) => {
               const element = e.currentTarget;
               element.style.transform = getRandomTransformation();
-              element.style.color = "#ADFF2F"; // Change text color to highlighter green on hover
               element.style.zIndex = "10"; // Bring the element to the front
             }}
             onMouseLeave={(e) => {
               const element = e.currentTarget;
               element.style.transform = "none";
-              element.style.color = "white"; // Revert text color to white
+              element.style.zIndex = "1"; // Reset z-index after animation
+            }}
+          >
+            {letter}
+          </span>
+        ))}
+        {work.map((letter, index) => (
+          <span
+            key={index}
+            className="inline-block text-[#ADFF2F] text-8xl transition-transform duration-500 ease-in-out"
+            style={{
+              transition: "transform 0.5s ease-in-out",
+              WebkitTextStroke: "0.5px black", // Apply thinner black outline
+            }}
+            onMouseEnter={(e) => {
+              const element = e.currentTarget;
+              element.style.transform = getRandomTransformation();
+              element.style.zIndex = "10"; // Bring the element to the front
+            }}
+            onMouseLeave={(e) => {
+              const element = e.currentTarget;
+              element.style.transform = "none";
               element.style.zIndex = "1"; // Reset z-index after animation
             }}
           >

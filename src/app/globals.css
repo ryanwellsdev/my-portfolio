@@ -93,3 +93,61 @@ body {
 .project-container:hover .gradient-overlay::after {
   opacity: 1;
 }
+
+/* styles.css or globals.css */
+
+/* For the toggle button */
+.toggle-button-hover {
+  background-color: #f8f8f8; /* Default background color */
+  transition: background-color 0.3s ease, opacity 0.3s ease; /* Smooth background transition */
+}
+
+.toggle-button-hover:hover {
+  background-color: #ADFF2F; /* Green background on hover */
+}
+
+.toggle-button-hover::before,
+.toggle-button-hover::after {
+  @apply absolute left-0 right-0 bg-black z-20;
+  content: "";
+  height: 6rem; /* Adjust height to match the desired thickness */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.3s ease; /* Smooth opacity transition for black bars */
+}
+
+.toggle-button-hover:hover::before,
+.toggle-button-hover:hover::after {
+  opacity: 1; /* Show black bars on hover */
+}
+
+.toggle-button-hover::before {
+  top: 0;
+}
+
+.toggle-button-hover::after {
+  bottom: 0;
+}
+
+
+/* For the About content */
+.about-content-hover::before,
+.about-content-hover::after {
+  @apply absolute left-0 right-0 bg-black z-20;
+  content: "";
+  height: 6rem; /* Adjust height to match the desired thickness */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.about-content-hover:hover::before,
+.about-content-hover:hover::after {
+  opacity: 1; /* Show on hover */
+}
+
+.about-content-hover::before {
+  top: 0;
+}
+
+.about-content-hover::after {
+  bottom: 0;
+}
