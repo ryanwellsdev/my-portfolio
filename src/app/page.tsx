@@ -12,6 +12,7 @@ export default function HomePage() {
 
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const projectsRef = useRef<HTMLDivElement | null>(null);
+  const collapseTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     // Check if the device is touch-based
@@ -32,38 +33,24 @@ export default function HomePage() {
     setOpenProject(openProject === projectId ? null : projectId);
   };
 
-  const handleMouseLeave = (
-    section: string,
-    e: React.MouseEvent<HTMLDivElement>
-  ) => {
+  const handleMouseLeave = (section: string) => {
     if (!isTouchDevice) {
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
-      let rect;
-
-      if (section === "about") {
-        rect = aboutRef.current?.getBoundingClientRect();
-      } else if (section === "projects") {
-        rect = projectsRef.current?.getBoundingClientRect();
-      }
-
-      if (rect) {
-        const buffer = 20; // Add a 20px buffer around the section
-        const isOutside =
-          mouseX > rect.right + buffer ||
-          mouseX < rect.left - buffer ||
-          mouseY > rect.bottom + buffer ||
-          mouseY < rect.top - buffer;
-
-        if (isOutside) {
-          if (section === "about" && openSection === "about") {
-            setOpenSection(null);
-          } else if (section === "projects" && openSection === "projects") {
-            setOpenSection(null);
-            setOpenProject(null);
-          }
+      collapseTimeout.current = setTimeout(() => {
+        if (section === "about" && openSection === "about") {
+          setOpenSection(null);
+        } else if (section === "projects" && openSection === "projects") {
+          setOpenSection(null);
+          setOpenProject(null);
         }
-      }
+      }, 500); // 200ms delay before collapsing
+    }
+  };
+
+  const handleMouseEnter = () => {
+    // Clear the timeout if the user re-enters the section
+    if (collapseTimeout.current) {
+      clearTimeout(collapseTimeout.current);
+      collapseTimeout.current = null;
     }
   };
 
@@ -76,7 +63,11 @@ export default function HomePage() {
       <div className="absolute bottom-24 left-0 right-0 h-[2px] bg-black z-50" />
 
       {/* About Section */}
-      <div ref={aboutRef} onMouseLeave={(e) => handleMouseLeave("about", e)}>
+      <div
+        ref={aboutRef}
+        onMouseLeave={() => handleMouseLeave("about")}
+        onMouseEnter={handleMouseEnter}
+      >
         <AboutSection
           isOpen={openSection === "about"}
           onClick={() => handleSectionToggle("about")}
@@ -88,8 +79,11 @@ export default function HomePage() {
       {/* Projects Section */}
       <div
         ref={projectsRef}
-        onMouseEnter={() => !isTouchDevice && setOpenSection("projects")}
-        onMouseLeave={(e) => handleMouseLeave("projects", e)}
+        onMouseEnter={() => {
+          handleMouseEnter();
+          if (!isTouchDevice) setOpenSection("projects");
+        }}
+        onMouseLeave={() => handleMouseLeave("projects")}
       >
         <ProjectsSection
           onProjectClick={handleProjectClick}
