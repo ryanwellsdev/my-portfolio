@@ -6,34 +6,38 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class", // Enable dark mode support via a class
+  darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        midnightflame: ["MidnightFlameGothic", "sans-serif"],
+        texgyreheros: ["TexGyreHeros", "sans-serif"], // Default font
+      },
       colors: {
-        black: "#1e2930", // Medium dark gray, your default black tone
-        white: "#f3ebd9", // Default white tone
-        accent1: "#cf9419", // Accent colors
-        accent2: "#8f3524",
-        accent3: "#627980",
-        "hover-accent1": "#cf9419", // Hover state colors
-        "hover-accent2": "#8f3524",
-        "hover-accent3": "#627980",
+        black: "#193741",
+        white: "#90c5a7",
+        accent1: "#3e5e63",
+        accent2: "#588184",
+        accent3: "#7ea996",
+        "hover-accent1": "#3e5e63",
+        "hover-accent2": "#588184",
+        "hover-accent3": "#7ea996",
       },
       backgroundColor: {
-        accent1: "#cf9419", // Background colors
-        accent2: "#8f3524",
-        accent3: "#627980",
-        "hover-accent1": "#cf9419", // Hover background colors
-        "hover-accent2": "#8f3524",
-        "hover-accent3": "#627980",
+        accent1: "#3e5e63",
+        accent2: "#588184",
+        accent3: "#7ea996",
+        "hover-accent1": "#3e5e63",
+        "hover-accent2": "#588184",
+        "hover-accent3": "#7ea996",
       },
       textColor: {
-        accent1: "#cf9419", // Text colors
-        accent2: "#8f3524",
-        accent3: "#627980",
+        accent1: "#3e5e63",
+        accent2: "#588184",
+        accent3: "#7ea996",
       },
       borderColor: {
-        black: "#1e2930", // Border color
+        black: "#193741",
       },
     },
   },

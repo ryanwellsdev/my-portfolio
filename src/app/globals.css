@@ -6,6 +6,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'MidnightFlameGothic';
+  src: url('/fonts/MidnightFlameGothic.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
@@ -94,8 +101,6 @@ body {
   opacity: 1;
 }
 
-/* styles.css or globals.css */
-
 /* For the toggle button */
 .toggle-button-hover {
   @apply bg-white transition-colors duration-300 ease-in-out; /* Apply Tailwind utilities */
@@ -136,6 +141,7 @@ body {
   height: 6rem; /* Adjust height to match the desired thickness */
   opacity: 0; /* Start hidden */
   transition: opacity 0.3s ease; /* Smooth transition */
+  pointer-events: none; /* Ensure no interaction with scroll or hover */
 }
 
 .about-content-hover:hover::before,

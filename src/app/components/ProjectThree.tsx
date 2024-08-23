@@ -11,7 +11,7 @@ interface ProjectProps {
   onClick: () => void;
 }
 
-const ProjectTwo: React.FC<ProjectProps> = ({
+const ProjectThree: React.FC<ProjectProps> = ({
   title,
   details,
   isOpen,
@@ -136,33 +136,34 @@ const ProjectTwo: React.FC<ProjectProps> = ({
                   />
                 </div>
               </div>
-              <h2 className="text-lg text-black font-bold mb-4">{title}</h2>
-              <p className="text-xs mb-4">
-                {details} This project showcases advanced skills in full-stack
-                development, integrating modern technologies to create
-                efficient, user-friendly applications. The focus is on
-                responsive design, optimized performance, and seamless user
-                experience.
-              </p>
-              <p className="text-xs mb-4">
-                The development process included extensive planning, iterative
-                testing, and user feedback loops to ensure that the final
-                product meets the needs of its intended audience. Emphasis was
-                placed on clean, maintainable code, and scalable architecture.
-              </p>
-              <p className="text-xs mb-4">
-                Throughout the project, key technologies were employed, such as
-                React for the frontend, Node.js for the backend, and MongoDB for
-                the database. The project also leveraged Next.js for server-side
-                rendering and enhanced performance.
-              </p>
-              <p className="text-xs">
-                The outcome is a highly functional application that demonstrates
-                proficiency in software development, project management, and
-                user-centered design. This project is a testament to the
-                dedication to quality and the continuous pursuit of excellence
-                in the field of software engineering.
-              </p>
+              <div className="pl-4 pr-8 mt-1 w-full">
+                <p className="text-xs mb-4 text-justify">
+                  {details} This project showcases advanced skills in full-stack
+                  development, integrating modern technologies to create
+                  efficient, user-friendly applications. The focus is on
+                  responsive design, optimized performance, and seamless user
+                  experience.
+                </p>
+                <p className="text-xs mb-4 text-justify">
+                  The development process included extensive planning, iterative
+                  testing, and user feedback loops to ensure that the final
+                  product meets the needs of its intended audience. Emphasis was
+                  placed on clean, maintainable code, and scalable architecture.
+                </p>
+                <p className="text-xs mb-4 text-justify">
+                  Throughout the project, key technologies were employed, such
+                  as React for the frontend, Node.js for the backend, and
+                  MongoDB for the database. The project also leveraged Next.js
+                  for server-side rendering and enhanced performance.
+                </p>
+                <p className="text-xs text-justify">
+                  The outcome is a highly functional application that
+                  demonstrates proficiency in software development, project
+                  management, and user-centered design. This project is a
+                  testament to the dedication to quality and the continuous
+                  pursuit of excellence in the field of software engineering.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -171,4 +172,4 @@ const ProjectTwo: React.FC<ProjectProps> = ({
   );
 };
 
-export default ProjectTwo;
+export default ProjectThree;
