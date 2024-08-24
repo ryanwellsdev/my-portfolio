@@ -25,7 +25,7 @@ const AnimatedName: React.FC = () => {
         {name.map((letter, index) => (
           <span
             key={index}
-            className="inline-block text-black text-8xl transition-transform duration-500 ease-in-out"
+            className="inline-block text-black text-6xl transition-transform duration-500 ease-in-out"
             style={{
               transition: "transform 0.5s ease-in-out",
             }}
@@ -46,7 +46,7 @@ const AnimatedName: React.FC = () => {
         {work.map((letter, index) => (
           <span
             key={index}
-            className="inline-block text-black text-8xl transition-transform duration-500 ease-in-out"
+            className="inline-block text-black text-6xl transition-transform duration-500 ease-in-out"
             style={{
               transition: "transform 0.5s ease-in-out",
               WebkitTextStroke: ".3px #193741", // Update with accent2 color
@@ -68,11 +68,11 @@ const AnimatedName: React.FC = () => {
       </h1>
 
       {/* New Section for Additional Text */}
-      <div className="font-midnightflame flex justify-between w-full mt-12 px-4  ">
+      {/* <div className="font-midnightflame flex justify-between w-full mt-12 px-4  ">
         <span className="text-3xl text-accent1">Product Management</span>
         <span className="text-3xl text-accent1">|</span>
         <span className="text-3xl text-accent1">Software Development</span>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -34,7 +34,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isOpen, onClick }) => {
             contentVisible ? "opacity-100" : "opacity-0"
           } about-content-hover relative`}
         >
-          <div className="h-full w-full overflow-y-auto p-6">
+          <div className="h-full w-full overflow-y-auto pl-10 p-8">
             {/* About Section Content */}
             <div className="relative overflow-hidden mb-2 w-[550px] h-[350px]">
               <Image
@@ -42,10 +42,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isOpen, onClick }) => {
                 alt="ryanwellsphoto"
                 fill
                 style={{ objectFit: "cover" }}
-                className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                className="transform transition-transform duration-500 ease-in-out hover:scale-110"
               />
             </div>
-            <div className="pl-2 pr-14">
+            <div className="px-2 pr-8">
               <p className="text-xs mb-4 text-justify">
                 Ryan Wells is a dynamic professional whose career seamlessly
                 bridges the worlds of software development, film production, and

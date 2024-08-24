@@ -93,18 +93,18 @@ const ProjectThree: React.FC<ProjectProps> = ({
               contentVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            <div className="flex flex-col items-start p-6">
+            <div className="flex flex-col items-start pl-8 p-6">
               <div
                 className="relative overflow-hidden mb-2"
                 style={{ width: "700px", height: "350px" }}
               >
-                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                <div className="absolute inset-0 overflow-hidden">
                   <Image
                     src="/photos/QuickQuestion1.png"
                     alt={title}
                     layout="fill"
                     objectFit="cover"
-                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                   />
                 </div>
               </div>
@@ -112,13 +112,13 @@ const ProjectThree: React.FC<ProjectProps> = ({
                 className="relative overflow-hidden mb-2"
                 style={{ width: "700px", height: "350px" }}
               >
-                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                <div className="absolute inset-0 overflow-hidden">
                   <Image
                     src="/photos/QuickQuestion2.png"
                     alt={title}
                     layout="fill"
                     objectFit="cover"
-                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                   />
                 </div>
               </div>
@@ -126,13 +126,13 @@ const ProjectThree: React.FC<ProjectProps> = ({
                 className="relative overflow-hidden mb-2"
                 style={{ width: "700px", height: "350px" }}
               >
-                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                <div className="absolute inset-0 overflow-hidden">
                   <Image
                     src="/photos/QuickQuestion3.png"
                     alt={title}
                     layout="fill"
                     objectFit="cover"
-                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                   />
                 </div>
               </div>

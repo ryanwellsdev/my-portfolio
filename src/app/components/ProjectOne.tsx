@@ -92,19 +92,19 @@ const ProjectOne: React.FC<ProjectProps> = ({
               contentVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            <div className="flex flex-col py-8 items-center">
+            <div className="flex flex-col py-6 items-center">
               {/* Image Container with Zoom Effect */}
               <div
                 className="relative overflow-hidden mb-2"
                 style={{ width: "700px", height: "350px" }}
               >
-                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                <div className="absolute inset-0 overflow-hidden">
                   <Image
                     src="/photos/ryanwellswebsite.png"
                     alt={title}
                     layout="fill"
                     objectFit="cover"
-                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                   />
                 </div>
               </div>
@@ -112,13 +112,13 @@ const ProjectOne: React.FC<ProjectProps> = ({
                 className="relative overflow-hidden"
                 style={{ width: "700px", height: "350px" }}
               >
-                <div className="absolute inset-0 rounded-lg overflow-hidden mb-2">
+                <div className="absolute inset-0 overflow-hidden mb-2">
                   <Image
                     src="/photos/ryanwellswebsite2.png"
                     alt={title}
                     layout="fill"
                     objectFit="cover"
-                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                   />
                 </div>
               </div>
@@ -126,13 +126,13 @@ const ProjectOne: React.FC<ProjectProps> = ({
                 className="relative overflow-hidden"
                 style={{ width: "700px", height: "350px" }}
               >
-                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                <div className="absolute inset-0 overflow-hidden">
                   <Image
                     src="/photos/ryanwellswebsite3.png"
                     alt={title}
                     layout="fill"
                     objectFit="cover"
-                    className="transform transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                   />
                 </div>
               </div>
