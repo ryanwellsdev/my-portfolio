@@ -85,19 +85,16 @@ const ProjectOne: React.FC<ProjectProps> = ({
         }}
       >
         {/* Inner Container with Increased Padding */}
-        <div className="h-full flex flex-col justify-center py-24">
+        <div className="h-full flex flex-col justify-center px-2 py-24">
           {/* Scrollable Content Container */}
           <div
             className={`h-full w-full overflow-y-auto transition-opacity duration-500 ease-in-out ${
               contentVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            <div className="flex flex-col py-6 items-center">
+            <div className="flex flex-col py-3 items-center">
               {/* Image Container with Zoom Effect */}
-              <div
-                className="relative overflow-hidden mb-2"
-                style={{ width: "700px", height: "350px" }}
-              >
+              <div className="relative overflow-hidden mb-2 w-[48rem] h-[24rem]">
                 <div className="absolute inset-0 overflow-hidden">
                   <Image
                     src="/photos/ryanwellswebsite.png"
@@ -108,11 +105,8 @@ const ProjectOne: React.FC<ProjectProps> = ({
                   />
                 </div>
               </div>
-              <div
-                className="relative overflow-hidden"
-                style={{ width: "700px", height: "350px" }}
-              >
-                <div className="absolute inset-0 overflow-hidden mb-2">
+              <div className="relative overflow-hidden mb-2 w-[48rem] h-[24rem]">
+                <div className="absolute inset-0 overflow-hidden">
                   <Image
                     src="/photos/ryanwellswebsite2.png"
                     alt={title}
@@ -122,10 +116,7 @@ const ProjectOne: React.FC<ProjectProps> = ({
                   />
                 </div>
               </div>
-              <div
-                className="relative overflow-hidden"
-                style={{ width: "700px", height: "350px" }}
-              >
+              <div className="relative overflow-hidden mb-1 w-[48rem] h-[24rem]">
                 <div className="absolute inset-0 overflow-hidden">
                   <Image
                     src="/photos/ryanwellswebsite3.png"
@@ -136,9 +127,9 @@ const ProjectOne: React.FC<ProjectProps> = ({
                   />
                 </div>
               </div>
-              <div className="flex justify-between items-center px-10 mt-1 w-full">
-                <h2 className="text-sm text-black font-bold">{title}</h2>
-                <p className="text-xs text-black">{details}</p>
+              <div className="flex justify-between items-center px-1 w-full">
+                <p className="text-xs mb-4">{title}</p>
+                <p className="text-xs mb-4">{details}</p>
               </div>
             </div>
           </div>

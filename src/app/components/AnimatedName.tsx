@@ -3,9 +3,9 @@ import React from "react";
 const getRandomTransformation = () => {
   const transformations = [
     `scale(${2 + Math.random() * 2})`, // Scale between 2x and 4x
-    `translateX(${Math.random() * 24 - 12}vw)`, // Move horizontally by up to 25vw in either direction
-    `rotate(${Math.random() * 360}deg)`, // Random rotation between 0 and 360 degrees
-    `skew(${Math.random() * 20 - 10}deg, ${Math.random() * 20 - 10}deg)`, // Random skew
+    `translateX(${Math.random() * 10 - 5}vw)`, // Move horizontally by up to 25vw in either direction
+    `rotate(${Math.random() * 180 - 90}deg)`, // Random rotation between 0 and 360 degrees
+    `skew(${Math.random() * 15 - 7}deg, ${Math.random() * 20 - 10}deg)`, // Random skew
   ];
 
   // Combine a few random transformations

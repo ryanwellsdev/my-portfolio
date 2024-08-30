@@ -25,14 +25,14 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
       <ProjectTwo
         id="project2"
         title="Playground Pal - Find playgrounds and equipment in Calgary Canada"
-        details="Details about Project Two"
+        details="REACT EXPRESS.JS MONGODB"
         isOpen={openProject === "project2"}
         onClick={() => onProjectClick("project2")}
       />
       <ProjectThree
         id="project3"
-        title="QuickQuestion - A Survey app done right. Measure your companies morale"
-        details="Detailed description here..."
+        title="QuickQuestion - A Survey application. Measure your companies morale"
+        details="NEXT.JS TYPESCRIPT MONGODB "
         isOpen={openProject === "project3"}
         onClick={() => onProjectClick("project3")}
       />

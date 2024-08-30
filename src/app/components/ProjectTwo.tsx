@@ -86,18 +86,15 @@ const ProjectTwo: React.FC<ProjectProps> = ({
         }}
       >
         {/* Inner Container with Increased Padding */}
-        <div className="h-full flex flex-col justify-center py-24">
+        <div className="h-full flex flex-col justify-center px-2 py-24">
           {/* Scrollable Content Container */}
           <div
             className={`h-full w-full overflow-y-auto transition-opacity duration-500 ease-in-out ${
               contentVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            <div className="flex flex-col items-start pl-8 p-6">
-              <div
-                className="relative overflow-hidden mb-2"
-                style={{ width: "700px", height: "350px" }}
-              >
+            <div className="flex flex-col py-3  items-center">
+              <div className="relative overflow-hidden mb-2 w-[48rem] h-[24rem]">
                 <div className="absolute inset-0 overflow-hidden">
                   <Image
                     src="/photos/playgroundpal1.png"
@@ -108,10 +105,7 @@ const ProjectTwo: React.FC<ProjectProps> = ({
                   />
                 </div>
               </div>
-              <div
-                className="relative overflow-hidden mb-2"
-                style={{ width: "700px", height: "350px" }}
-              >
+              <div className="relative overflow-hidden mb-2 w-[48rem] h-[24rem]">
                 <div className="absolute inset-0 overflow-hidden">
                   <Image
                     src="/photos/playgroundpal2.png"
@@ -122,10 +116,7 @@ const ProjectTwo: React.FC<ProjectProps> = ({
                   />
                 </div>
               </div>
-              <div
-                className="relative overflow-hidden mb-2"
-                style={{ width: "700px", height: "350px" }}
-              >
+              <div className="relative overflow-hidden mb-1 w-[48rem] h-[24rem]">
                 <div className="absolute inset-0 overflow-hidden">
                   <Image
                     src="/photos/playgroundpal3.png"
@@ -136,33 +127,10 @@ const ProjectTwo: React.FC<ProjectProps> = ({
                   />
                 </div>
               </div>
-              <h2 className="text-lg text-black font-bold mb-4">{title}</h2>
-              <p className="text-xs mb-4">
-                {details} This project showcases advanced skills in full-stack
-                development, integrating modern technologies to create
-                efficient, user-friendly applications. The focus is on
-                responsive design, optimized performance, and seamless user
-                experience.
-              </p>
-              <p className="text-xs mb-4">
-                The development process included extensive planning, iterative
-                testing, and user feedback loops to ensure that the final
-                product meets the needs of its intended audience. Emphasis was
-                placed on clean, maintainable code, and scalable architecture.
-              </p>
-              <p className="text-xs mb-4">
-                Throughout the project, key technologies were employed, such as
-                React for the frontend, Node.js for the backend, and MongoDB for
-                the database. The project also leveraged Next.js for server-side
-                rendering and enhanced performance.
-              </p>
-              <p className="text-xs">
-                The outcome is a highly functional application that demonstrates
-                proficiency in software development, project management, and
-                user-centered design. This project is a testament to the
-                dedication to quality and the continuous pursuit of excellence
-                in the field of software engineering.
-              </p>
+              <div className="flex justify-between items-center px-1 w-full">
+                <p className="text-xs mb-4">{title}</p>
+                <p className="text-xs mb-4">{details}</p>
+              </div>
             </div>
           </div>
         </div>
