@@ -39,7 +39,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isOpen, onClick }) => {
             <div className="flex pr-4 pl-2 flex-col py-3 items-center">
               <div className="relative overflow-hidden mb-2 w-[39rem] h-[24rem]">
                 <Image
-                  src="/photos/ryanwells.png"
+                  src="/photos/ryanwells.jpeg"
                   alt="ryanwellsphoto"
                   fill
                   style={{ objectFit: "cover" }}
