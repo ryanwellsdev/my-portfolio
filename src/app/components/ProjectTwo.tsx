@@ -120,6 +120,8 @@ const ProjectTwo: React.FC<ProjectProps> = ({
                 <p className="text-xs mb-1">{title}</p>
                 <p className="text-xs mb-1">{details}</p>
               </div>
+
+              {/* Updated Image Components */}
               <div
                 className="relative overflow-hidden mb-2 w-[48rem] h-[24rem] cursor-pointer"
                 onClick={() => openModal(0)}
@@ -127,8 +129,8 @@ const ProjectTwo: React.FC<ProjectProps> = ({
                 <Image
                   src="/photos/playgroundpal1.png"
                   alt="playgroundpal1"
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                 />
               </div>
@@ -139,8 +141,8 @@ const ProjectTwo: React.FC<ProjectProps> = ({
                 <Image
                   src="/photos/playgroundpal2.png"
                   alt="playgroundpal2"
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                 />
               </div>
@@ -151,8 +153,8 @@ const ProjectTwo: React.FC<ProjectProps> = ({
                 <Image
                   src="/photos/playgroundpal3.png"
                   alt="playgroundpal3"
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                 />
               </div>
