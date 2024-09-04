@@ -126,8 +126,8 @@ const ProjectOne: React.FC<ProjectProps> = ({
                 <Image
                   src={images[0]}
                   alt={title}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                 />
               </div>
@@ -138,8 +138,8 @@ const ProjectOne: React.FC<ProjectProps> = ({
                 <Image
                   src={images[1]}
                   alt={title}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                 />
               </div>
@@ -150,8 +150,8 @@ const ProjectOne: React.FC<ProjectProps> = ({
                 <Image
                   src={images[2]}
                   alt={title}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className="transform transition-transform duration-500 ease-in-out hover:scale-110"
                 />
               </div>
