@@ -1,7 +1,6 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Modal from "./SlideshowModal"; // Ensure the Modal component is imported correctly
 
 interface ProjectProps {
   id: string;
@@ -18,6 +17,14 @@ const ProjectOne: React.FC<ProjectProps> = ({
   onClick,
 }) => {
   const [contentVisible, setContentVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const images = [
+    "/photos/ryanwellswebsite.png",
+    "/photos/ryanwellswebsite2.png",
+    "/photos/ryanwellswebsite3.png",
+  ];
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
@@ -28,6 +35,21 @@ const ProjectOne: React.FC<ProjectProps> = ({
     }
     return () => clearTimeout(timeoutId);
   }, [isOpen]);
+
+  const openModal = (index: number) => {
+    setCurrentIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
 
   return (
     <div
@@ -42,9 +64,9 @@ const ProjectOne: React.FC<ProjectProps> = ({
         style={{
           width: isOpen ? "6rem" : "calc(6rem - 2px)",
           height: "100%",
-          paddingTop: "8rem", // Add padding at the top
-          paddingBottom: "8rem", // Add padding at the bottom
-          boxSizing: "border-box", // Ensure padding does not affect size
+          paddingTop: "8rem",
+          paddingBottom: "8rem",
+          boxSizing: "border-box",
         }}
         onClick={onClick}
         role="button"
@@ -62,7 +84,6 @@ const ProjectOne: React.FC<ProjectProps> = ({
           >
             {title}
           </span>
-          {/* Gradient Overlay */}
           <div
             className="absolute inset-0 z-0 transition-all duration-500 gradient-overlay"
             style={{
@@ -92,49 +113,63 @@ const ProjectOne: React.FC<ProjectProps> = ({
               contentVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            <div className="flex flex-col py-3 items-center">
-              {/* Image Container with Zoom Effect */}
-              <div className="relative overflow-hidden mb-2 w-[48rem] h-[24rem]">
-                <div className="absolute inset-0 overflow-hidden">
-                  <Image
-                    src="/photos/ryanwellswebsite.png"
-                    alt={title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
-                  />
-                </div>
+            <div className="flex flex-col items-center">
+              <div className="flex justify-between items-center px-1 pt-1 w-full  ">
+                <p className="text-xs mb-1">{title}</p>
+                <p className="text-xs mb-1">{details}</p>
               </div>
-              <div className="relative overflow-hidden mb-2 w-[48rem] h-[24rem]">
-                <div className="absolute inset-0 overflow-hidden">
-                  <Image
-                    src="/photos/ryanwellswebsite2.png"
-                    alt={title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
-                  />
-                </div>
+              {/* Image Container with Click to Open Modal */}
+              <div
+                className="relative overflow-hidden mb-2 w-[48rem] h-[24rem] cursor-pointer"
+                onClick={() => openModal(0)}
+              >
+                <Image
+                  src={images[0]}
+                  alt={title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transform transition-transform duration-500 ease-in-out hover:scale-110"
+                />
               </div>
-              <div className="relative overflow-hidden mb-1 w-[48rem] h-[24rem]">
-                <div className="absolute inset-0 overflow-hidden">
-                  <Image
-                    src="/photos/ryanwellswebsite3.png"
-                    alt={title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transform transition-transform duration-500 ease-in-out hover:scale-110"
-                  />
-                </div>
+              <div
+                className="relative overflow-hidden mb-2 w-[48rem] h-[24rem] cursor-pointer"
+                onClick={() => openModal(1)}
+              >
+                <Image
+                  src={images[1]}
+                  alt={title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transform transition-transform duration-500 ease-in-out hover:scale-110"
+                />
               </div>
-              <div className="flex justify-between items-center px-1 w-full">
-                <p className="text-xs mb-4">{title}</p>
-                <p className="text-xs mb-4">{details}</p>
+              <div
+                className="relative overflow-hidden mb-1 w-[48rem] h-[24rem] cursor-pointer"
+                onClick={() => openModal(2)}
+              >
+                <Image
+                  src={images[2]}
+                  alt={title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transform transition-transform duration-500 ease-in-out hover:scale-110"
+                />
               </div>
+              <div className="mb-2"></div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Modal Component */}
+      <Modal
+        images={images}
+        currentIndex={currentIndex}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onNext={handleNext}
+        onPrevious={handlePrevious}
+      />
     </div>
   );
 };
